@@ -17,7 +17,7 @@ export interface GasTrackerData {
 }
 
 export const defaultConfig: AppConfig = {
-  apiKey: 'your API key here', 
+  apiKey: 'YTP2M89YKNXZMPCX9Q13YN17CGANIYR28P', 
   contractAddress: '0x0dE8bf93dA2f7eecb3d9169422413A9bef4ef628', 
   transactionsPerPage: 500, // tx per API request
   maxTransactionsToScan: 1000, // total tx to request
