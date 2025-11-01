@@ -7,8 +7,9 @@ A simple desktop application that tracks the lowest gas fees for any EVM (Ethere
 ---
 
 ## 📸 Screenshot
-
-![My App Demo](assets/demo.gif)
+<p align="center">
+  <img src="src/assets/demo.gif" alt="My App Demo">
+</p>
 
 ---
 
