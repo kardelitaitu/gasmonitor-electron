@@ -37,6 +37,27 @@ const renderChart = (chartData: { labels: string[]; data: { value: number; relat
 
   const dataValues = chartData.data.map(item => item.value); // Extract values explicitly
 
+  // --- DYNAMIC Y-AXIS LOGIC ---
+  let yMin = 0;
+  let yMax = 1; // Default if no data
+
+  if (dataValues.length > 0) {
+    const dataMin = Math.min(...dataValues);
+    const dataMax = Math.max(...dataValues);
+    const dataRange = dataMax - dataMin;
+
+    // Calculate margin (10% of the range, or 10% of the value if range is 0)
+    let margin = dataRange === 0 ? dataMax * 0.1 : dataRange * 0.1;
+
+    // Ensure margin is a small number if all data is 0
+    if (margin === 0) {
+      margin = 0.01;
+    }
+
+    // Apply margins, ensuring min never goes below 0 for gas price
+    yMin = Math.max(0, dataMin - margin);
+    yMax = dataMax + margin;
+  }
   gasChart = new Chart(ctx, {
     type: 'line', // Example chart type
     data: {
@@ -100,7 +121,11 @@ const renderChart = (chartData: { labels: string[]; data: { value: number; relat
           }
         },
         y: {
-          beginAtZero: true,
+          // --- UPDATED ---
+          // beginAtZero: true, // <-- Removed
+          min: yMin,             // <-- Added
+          max: yMax,             // <-- Added
+          // --- END UPDATE ---
           title: {
             display: true,
             text: 'Gas Price (Gwei)' // Optional: Add a title to the Y-axis

@@ -153,6 +153,6 @@ body {
       }
 
       #gas-chart {
-        max-height: 300px; /* Adjust this value as needed */
+        max-height: 355px; /* Adjust this value as needed */
         width: 100%; /* Ensure it takes full width */
       }

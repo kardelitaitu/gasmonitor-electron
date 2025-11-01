@@ -55,15 +55,15 @@ try {
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 800, // Default width
-    height: 550, // Default height
+    width: 820, // Default width
+    height: 580, // Default height
     x: windowState.x, // Use saved x
     y: windowState.y, // Use saved y
     frame: false,
     transparent: true,
     show: false,
     hasShadow: false,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     resizable: false,   // New: Make window not resizable
     maximizable: false, // New: Disable maximize button
     webPreferences: {
